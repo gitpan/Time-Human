@@ -25,7 +25,7 @@ our @EXPORT = qw(
     humanize
 	
 );
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 
 our %templates = (
 
@@ -122,6 +122,13 @@ for hackers, evening may start at 3am.
 =head2 EXPORT
 
 C<humanize> is exported.
+
+=head2 LICENSE
+
+This module may be distributed under the same terms as Perl itself, that
+is, GPL or Artistic license at your choice. This software is a gift, not
+a burden, and as such is totally unsupported. I'll take patches gladly
+but reserve the right to ignore support email about it.
 
 =head1 AUTHOR
 
