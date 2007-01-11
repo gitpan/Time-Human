@@ -25,7 +25,7 @@ our @EXPORT = qw(
     humanize
 	
 );
-our $VERSION = '1.02';
+our $VERSION = '1.03';
 
 our %templates = (
 
@@ -80,6 +80,7 @@ sub humanize_base {
     $rv =~ s/%m/$say_min/g;
     $rv =~ s/%h/$say_hour/g;
     $rv =~ s/%d/$daytime/g;
+    $rv =~ s/^\s+|(?<=\s)\s|\s+$//g;
     return $rv;
 }
 
@@ -119,23 +120,53 @@ at which afternoon turns to evening and evening turns to night in
 your culture. For instance, Greeks may want evening to start at 11pm; 
 for hackers, evening may start at 3am.
 
-=head2 EXPORT
+=head1 USAGE 
 
-C<humanize> is exported.
+=head2 Import Parameters
 
-=head2 LICENSE
+This module accepts no arguments to it's C<import> method (actually, it doesn't
+        even have an import C<method>).
 
-This module may be distributed under the same terms as Perl itself, that
-is, GPL or Artistic license at your choice. This software is a gift, not
-a burden, and as such is totally unsupported. I'll take patches gladly
-but reserve the right to ignore support email about it.
+=head2 Exports
+
+This module exports a single I<symbols>, the C<humanize> function.
+
+=head1 CREDITS
+
+Simon Cozens (SIMON) for originally creating this module.
+
+Ricardo SIGNES (RJBS) for being inhumanly patient in waiting for me to apply a
+one line whitespace trimming patch.
+
+Everyone at the DateTime C<Asylum>.
+
+=head1 SUPPORT
+
+Support for this module is provided via the datetime@perl.org email list. See
+http://lists.perl.org/ for more details
 
 =head1 AUTHOR
 
 Simon Cozens, C<simon@cpan.org>
 
+=head1 CURRENT MAINTAINER
+
+Joshua Hoblitt, C<jhoblitt@cpan.org>
+
+=head1 COPYRIGHT
+
+Copyright (C) 2006-2007  Joshua Hoblitt.  All rights reserved. 
+Copyright (C) 2001-2002(???)  Simon Cozens.
+
+This program is free software; you can redistribute it and/or modify it under
+the same terms as Perl itself.
+
+The full text of the license can be found in the LICENSE file included with
+this module, or in L<perlartistic> and L<perlgpl> Pods as supplied with Perl
+5.8.1 and later.
+
 =head1 SEE ALSO
 
-perl(1).
+L<DateTime>, L<DateTime::Format::Human>
 
 =cut
